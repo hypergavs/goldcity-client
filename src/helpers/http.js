@@ -1,4 +1,6 @@
 import axios from 'axios'
+import Router from '../router'
+import store from '../store'
 
 function authHeadersForAPI () {
     const tokenData = window.localStorage.getItem('auth-token')
@@ -32,27 +34,23 @@ export const HTTP_API = (payload) => {
     })
     
 
-    axiosInstance.interceptors.response.use(response => response, 
-        error => {
-            if (error.response) {
-               
-            }
-            // if (error.response) {
-            //     if (error.response.data.role && error.response.data.role == 'user') {
-            //         store.dispatch('authStore/resetAllApplicationState')
-            //         Router.push({ name: 'login' })
-            //     }
-            // }
+    // axiosInstance.interceptors.response.use(response => response, 
+    //     error => {
+    //         if (error.response) {
+    //             if (error.response.data.role && error.response.data.role == 'user') {
+    //                 store.dispatch('authStore/resetAllApplicationState')
+    //                 Router.push({ name: 'login' })
+    //             }
+    //         }
 
-            // if (error.response.status == 401) {
-            //     store.dispatch('authStore/resetAllApplicationState')
-            //     alert('Another device was used to login your account!')
-            //     Router.push({ name: 'login' })
-            // }
+    //         if (error.response.status == 401) {
+    //             store.dispatch('authStore/resetAllApplicationState')
+    //             Router.push({ name: 'login' })
+    //         }
 
-            return Promise.reject(error)
-        }
-    )
+    //         return Promise.reject(error)
+    //     }
+    // )
 
     return axiosInstance
 }

@@ -97,7 +97,7 @@ export default {
         login () {
             this.processLoginToAPI(this.userData)
                 .then(response => {
-
+                    console.log(response.data)
                 })
         }
     }
